@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+</head>
+<body>
+
+
+<div class="gateway" data-gateway="platba převodem" data-show-when="platba převodem">
+ <h3>Instrukce pro platbu převodem</h3>
+ <p>Pošlete peníze na účet: <strong>123456789/0100</strong>
+ Variabilní symbol: <strong>123456</strong></p>
+</div>
+
+<div class="gateway" data-gateway="undefined" data-show-when="platba převodem">
+ <h3>druhé pole.</h3>
+</div>
+
+<script src="varsymbol.js"></script>
+<script>
+ ShopifyVarSymbol('.gateway');
+</script>
+
+</body>
+</html>
