@@ -5,7 +5,7 @@ Opravdu jednoduchý kus kódu pro generování variabilního čísla na konci ob
 
 * Prihlaste se do administrace Vašeho obchodu běžící na Shopify
 
-* Přejděte do "settings" dále "checkout" a následě v skeci "Additional content and scripts" vložte tento urtžek kódu níže. Kde:
+* Přejděte do "settings" dále "checkout" a následě v sekci "Additional content and scripts" vložte tento urtžek kódu níže. Kde:
   * `[[ váš-bankovní-učet ]]` nahraďte za váš realný bankovní učet například `123456789/0100`.
   * `[[ Nazev-brány ]]` nahraďte názvem platebního způsobu u kterého chcete aby se infomrace zobrazily. Název platebního způsobu naléznete v Shopify administraci > "setting" > "Manual Payments". Lze si tam nový způsob platby i vytvořit.
 
