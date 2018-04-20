@@ -13,9 +13,12 @@ Opravdu jednoduchý kus kódu pro generování variabilního čísla na konci ob
 <div class="gateway"
    data-gateway="{{ unique_gateways }}"
    data-show-when="[[ Nazev-brány ]]">
- <h3>Instrukce pro platbu převodem</h3>
- <p>Pošlete peníze na účet: <strong>[[ váš-bankovní-učet ]] </strong>
- Variabilní symbol: <strong>{{ order_number }}</strong></p>
+ <h2 class="os-step__title">Instrukce pro platbu převodem</h2>
+ <p>
+Pošlete peníze na účet: <strong>[[ váš-bankovní-učet ]]</strong><br />
+Variabilní symbol: <strong>{{ order_number }}</strong><br />
+Částka: <strong>{{ order.total_price | money }}</strong>
+</p>
 </div>
 ```
 
@@ -25,28 +28,32 @@ Opravdu jednoduchý kus kódu pro generování variabilního čísla na konci ob
 ```javascript
 <script>
 function ShopifyVarSymbol(selector) {
-  'use strict';
+    'use strict';
 
-  if(!selector){
-    throw "Missing Selector";
-    return false;
-  }
+    if (!selector) {
+        throw "Missing Selector";
+        return false;
+    }
 
-  [].forEach.call(document.querySelectorAll(selector), function(el,i,a) {
-    var gateway = el.getAttribute('data-gateway');
-    var when = el.getAttribute('data-show-when');
+    [].forEach.call(document.querySelectorAll(selector), function (el, i, a) {
+        var gateway = el.getAttribute('data-gateway');
+        var when = el.getAttribute('data-show-when');
 
-    if (gateway && when) {
-      gateway = gateway.toLowerCase().trim().replace(' ', '');
-      when = when.toLowerCase().trim().replace(' ', '');
+        if (gateway && when) {
+            gateway = gateway.toLowerCase().trim().replace(' ', '');
+            when = when.toLowerCase().trim().replace(' ', '');
 
-      if(gateway === when) {
-        el.removeAttribute('style');
-      } else {
-        el.setAttribute('style', 'opacity: 0; visibility: hidden; height: 0;');
-      }
-    } else { return false };
-  });
+            if (gateway === when) {
+                el.removeAttribute('style');
+                el.setAttribute('style', 'border: 1px #d9d9d9 solid;border-radius: 5px;background: #fff;margin: 30px 0 -2em;padding: 1.14286em;');
+            } else {
+                el.setAttribute('style', 'opacity: 0; visibility: hidden; height: 0;');
+            }
+        } else {
+            return false
+        }
+        ;
+    });
 };
 
 ShopifyVarSymbol('.gateway');

@@ -6,16 +6,20 @@
 </head>
 <body>
 
-
-<div class="gateway" data-gateway="platba převodem" data-show-when="platba převodem">
- <h3>Instrukce pro platbu převodem</h3>
- <p>Pošlete peníze na účet: <strong>123456789/0100</strong>
- Variabilní symbol: <strong>123456</strong></p>
+<div class="gateway"
+     data-gateway="{{ unique_gateways }}"
+     data-show-when="[[ Nazev-brány ]]">
+  <h2 class="os-step__title">Instrukce pro platbu převodem</h2>
+  <p>
+    Pošlete peníze na účet: <strong>[[ váš-bankovní-učet ]]</strong><br />
+    Variabilní symbol: <strong>{{ order_number }}</strong><br />
+    Částka: <strong>{{ order.total_price | money }}</strong>
+  </p>
 </div>
 
 <script src="varsymbol.js"></script>
 <script>
- ShopifyVarSymbol('.gateway');
+    ShopifyVarSymbol('.gateway');
 </script>
 
 </body>
